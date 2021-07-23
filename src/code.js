@@ -58,9 +58,7 @@ function changeTempe(recieved) {
   //weather.description i weather.icon
   let currentSun = document.querySelector("#sunny");
   let sun = recieved.data.weather[0].description;
-  console.log(recieved.data);
   currentSun.innerHTML = `${sun}`;
-  
   let sunIcon = recieved.data.weather[0].icon;
   document.getElementById("sun-icon").src =`images/${sunIcon}.png`;
 }
