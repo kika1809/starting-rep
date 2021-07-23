@@ -65,11 +65,12 @@
         <div class="row">
           <div class="col-6 weather-icon">☀</div>
           <div class="col weather-info">
-            Sunny <br />
-            Precipitation: 0% <br />
-            Humidity: 33% <br />
-            Wind:
+            <span id="sunny">Sunny </span><br />
+            <span>Precipitation:</span> <span id="precip">0%</span> <br />
+            <span>Humidity:</span> <span id="humidity">33% </span><br />
+            <span>Wind:</span>
             <img
+              id="wind-img"
               src="images/wind_unselected.png"
               style="transform-origin: 50% 50%; transform: rotate(445deg)"
               aria-hidden="true"
@@ -77,7 +78,7 @@
               width="12px"
               alt="filter applied"
             />
-            8 km/h
+            <span id="wind-speed">8 km/h</span>
           </div>
         </div>
       </div>
