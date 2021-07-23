@@ -1,0 +1,149 @@
+html {
+  margin: 0px;
+  height: 100%;
+}
+
+body {
+  margin: 0px;
+  background: linear-gradient(77deg, #f7ccbd, #f8ae95, #cc8d95);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+div .parent-city {
+  border: 2px solid rgb(82, 127, 134);
+  position: relative;
+  border-radius: 5px;
+  height: 40px;
+  width: 300px;
+  color: rgb(82, 127, 134);
+  font-weight: bold;
+}
+.main {
+  margin: 40px 60px;
+}
+.child-1 {
+  position: absolute;
+  top: auto;
+  left: 20px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 35.5px;
+  cursor: pointer;
+}
+.child-2 {
+  position: absolute;
+  top: auto;
+  right: 20px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 35.5px;
+  cursor: pointer;
+}
+
+.form-control {
+  color: #424b53;
+  background-color: rgba(255, 255, 255, 0.3);
+  background-clip: padding-box;
+  border: 1px solid rgb(7, 86, 91);
+}
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: rgb(129, 152, 156);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+}
+.form-control:active {
+  background-color: #fff;
+}
+
+.mb-3 {
+  margin-top: 20px;
+}
+.btn-outline-secondary {
+  color: rgb(7, 86, 91);
+  border-color: rgb(7, 86, 91);
+}
+.btn-outline-secondary:hover {
+  color: #fff;
+  background-color: rgb(7, 86, 91);
+  border-color: rgb(7, 86, 91);
+}
+
+.card-title,
+.card-subtitle {
+  text-align: center;
+  vertical-align: middle;
+}
+.city {
+  display: block;
+  font-size: 50px;
+  width: fit-content;
+}
+.card-title {
+  margin-top: 30px;
+  font-size: 45px;
+  color: rgb(7, 86, 91);
+}
+.card-subtitle {
+  font-size: 20px;
+  color: rgb(129, 152, 156);
+}
+div .weather {
+  margin: 0 auto;
+  width: fit-content;
+  font-size: 60px;
+}
+
+.card-title-temp {
+  margin-top: 30px;
+  color: rgb(7, 86, 91);
+}
+.degrees {
+  font-size: 20px;
+  color: rgb(129, 152, 156);
+  font-weight: 100;
+  vertical-align: text-top;
+  text-align: left;
+  cursor: pointer;
+}
+.weather-icon {
+  padding: 0 15px;
+  text-align: center;
+}
+.weather-info {
+  color: rgb(129, 152, 156);
+  font-size: 12px;
+  padding: 0 5px;
+}
+
+#slash {
+  cursor: default;
+}
+.chosen-degree {
+  color: rgb(7, 86, 91, 0.8);
+  font-weight: 400;
+}
+
+.fivedays {
+  border: 1px solid rgb(7, 86, 91);
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  font-size: 19px;
+  font-weight: bold;
+  color: rgb(7, 86, 91);
+}
+.day {
+  text-decoration: underline;
+}
+.date {
+  font-size: 16px;
+  font-weight: lighter;
+  color: rgb(129, 152, 156);
+}
+.icon {
+  font-size: 30px;
+}

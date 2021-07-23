@@ -2,9 +2,86 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="src/style.css" />
+    <script
+      src="https://kit.fontawesome.com/f573aa242a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container main">
+      <div class="parent-city" style="margin-left: 0; margin-right: auto">
+        <span class="child-1">London</span>
+        <span class="child-2">New York</span>
+      </div>
+
+      <form class="input-group mb-3" id="search-form">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="City name"
+          id="search-text-city"
+        />
+        <button
+          class="btn btn-outline-secondary"
+          type="submit"
+          id="button-addon1"
+        >
+          <i class="fas fa-search"></i>
+        </button>
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          id="button-addon2"
+        >
+          <i class="fas fa-map-marker-alt"></i>
+        </button>
+      </form>
+
+      <div class="city" id="city-hour">
+        <h5 class="card-title" id="shown-city">Split</h5>
+        <h6 class="card-subtitle" id="current-time">18:09</h6>
+      </div>
+
+      <div class="weather">
+        <span class="card-title-temp" id="current-temp">33</span>
+        <span class="degrees">
+          <span id="degreesC" class="chosen-degree">°C</span>
+          <span id="slash">|</span>
+          <span id="degreesF" class="degrees">°F</span>
+        </span>
+
+        <div class="row">
+          <div class="col-6 weather-icon">☀</div>
+          <div class="col weather-info">
+            Sunny <br />
+            Precipitation: 0% <br />
+            Humidity: 33% <br />
+            Wind:
+            <img
+              src="images/wind_unselected.png"
+              style="transform-origin: 50% 50%; transform: rotate(445deg)"
+              aria-hidden="true"
+              data-atf="0"
+              width="12px"
+              alt="filter applied"
+            />
+            8 km/h
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/code.js"></script>
+  </body>
 </html>
