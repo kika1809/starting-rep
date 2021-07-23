@@ -46,11 +46,23 @@ function getTempe(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(changeTempe);
 }
+
 function changeTempe(recieved) {
   let currentTemp = document.querySelector("#current-temp");
   let tempe = Math.round(recieved.data.main.temp);
   currentTemp.innerHTML = `${tempe}`;
   temperature = tempe;
+  //main.humidity
+
+  //wind.speed i wind.deg
+  //weather.description i weather.icon
+  let currentSun = document.querySelector("#sunny");
+  let sun = recieved.data.weather[0].description;
+  console.log(recieved.data);
+  currentSun.innerHTML = `${sun}`;
+  
+  let sunIcon = recieved.data.weather[0].icon;
+  document.getElementById("sun-icon").src =`images/${sunIcon}.png`;
 }
 function beginSearch() {
   navigator.geolocation.getCurrentPosition(seachLoc, errorLoc);
