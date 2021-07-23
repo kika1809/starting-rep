@@ -53,9 +53,12 @@ function changeTempe(recieved) {
   currentTemp.innerHTML = `${tempe}`;
   temperature = tempe;
   //main.humidity
-
+  let currentH = document.querySelector("#humidity");
+  let hum = recieved.data.main.humidity;
+  currentH.innerHTML = `${hum}%`;
   //wind.speed i wind.deg
-  //weather.description i weather.icon
+
+  //weather.description & weather.icon
   let currentSun = document.querySelector("#sunny");
   let sun = recieved.data.weather[0].description;
   currentSun.innerHTML = `${sun}`;
