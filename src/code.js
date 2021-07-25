@@ -1,3 +1,6 @@
+function loadPage() {
+  getTempe("Split");
+}
 function changeToC(event) {
   event.preventDefault();
   let currentW = document.querySelector("#current-temp");
@@ -40,13 +43,13 @@ function changeCity(event){
   }
 }
 
-//city temperature
+//city temperature-getting info
 function getTempe(city) {
   let apiKey = "92161eb593fedf6f773cc741f318b677";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(changeTempe);
+ axios.get(apiUrl).then(changeTempe);
 }
-
+//city temperature-reading info and making changes
 function changeTempe(recieved) {
   let currentTemp = document.querySelector("#current-temp");
   let tempe = Math.round(recieved.data.main.temp);
@@ -63,14 +66,15 @@ function changeTempe(recieved) {
   //wind direction
   let windDeg = `${recieved.data.wind.deg}deg`;
   document.getElementById("wind-img").style.transform=`rotate(${windDeg})`;
-  
   //weather.description & weather.icon
   let currentSun = document.querySelector("#sunny");
   let sun = recieved.data.weather[0].description;
   currentSun.innerHTML = `${sun}`;
   let sunIcon = recieved.data.weather[0].icon;
-  document.getElementById("sun-icon").src =`images/${sunIcon}.png`;
+  document.getElementById("sun-icon").src = `images/${sunIcon}.png`;
+  
 }
+
 function beginSearch() {
   navigator.geolocation.getCurrentPosition(seachLoc, errorLoc);
 }
@@ -82,8 +86,6 @@ function seachLoc(pos) {
 
   axios.get(apiUrl).then(changeTempe);
   axios.get(apiUrl).then(getCityName);
-  //changeCityinHTML(cityName);
-  //getTempe(cityName);
 }
 function getCityName(cityData) {
   let city = cityData.data.name;
@@ -92,8 +94,8 @@ function getCityName(cityData) {
 function errorLoc() {
   alert("We couldn't get your location.");
 }
-let currentDayData = new Date();
-let days = [
+function dayName(index) {
+  let days = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -101,17 +103,25 @@ let days = [
   "Thursday",
   "Friday",
   "Saturday"
-];
-let nowD = days[currentDayData.getDay()];
+  ];
+  return days[index];
+}
+function getTime() {
+  let currentDayData = new Date();
+  
+let nowD = dayName(currentDayData.getDay());
 let nowH = currentDayData.getHours();
 let nowM = currentDayData.getMinutes();
 if (nowM < 10) {
   nowM = `0${nowM}`;
-}
-let temperature = 33;
-//current time and day
+  }
+  //current time and day
 let currentTime = document.querySelector("#current-time");
 currentTime.innerHTML = `${nowD} ${nowH}:${nowM}`;
+}
+loadPage();
+  getTime();
+let temperature = 10;
 //degrees change
 let currentC = document.querySelector("#degreesC");
 currentC.addEventListener("click", changeToF);
@@ -126,7 +136,6 @@ gpsLoc.addEventListener("click", beginSearch);
 //top city
 let londo = document.querySelector(".child-1");
 londo.onclick = function() {
-	//do stuff
   changeCityinHTML("London");
   getTempe("London");
 }

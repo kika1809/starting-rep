@@ -10,7 +10,11 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
+div #codedBy,
+a {
+  color: rgb(82, 127, 134);
+  font-size: 12px;
+}
 div .parent-city {
   border: 2px solid rgb(82, 127, 134);
   position: relative;
@@ -93,6 +97,7 @@ div .parent-city {
 }
 div .weather {
   margin: 0 auto;
+  text-align: center;
   width: fit-content;
   font-size: 60px;
 }
@@ -109,41 +114,24 @@ div .weather {
   text-align: left;
   cursor: pointer;
 }
-.weather-icon {
-  padding: 0 15px;
-  text-align: center;
-}
+
 .weather-info {
   color: rgb(129, 152, 156);
   font-size: 12px;
-  padding: 0 5px;
+  padding: 36px 5px;
+  text-align: left;
 }
 
-#slash {
-  cursor: default;
-}
 .chosen-degree {
   color: rgb(7, 86, 91, 0.8);
   font-weight: 400;
 }
 
-.fivedays {
-  border: 1px solid rgb(7, 86, 91);
-  text-align: center;
-  margin: 20px;
-  padding: 20px;
-  font-size: 19px;
-  font-weight: bold;
-  color: rgb(7, 86, 91);
+#slash {
+  cursor: default;
 }
-.day {
-  text-decoration: underline;
-}
-.date {
-  font-size: 16px;
-  font-weight: lighter;
-  color: rgb(129, 152, 156);
-}
-.icon {
-  font-size: 30px;
+#sun-icon {
+  width: auto;
+  display: block;
+  margin: 0 auto;
 }
