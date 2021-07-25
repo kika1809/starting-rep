@@ -47,7 +47,7 @@ function changeCity(event){
 function getTempe(city) {
   let apiKey = "92161eb593fedf6f773cc741f318b677";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
- axios.get(apiUrl).then(changeTempe);
+  axios.get(apiUrl).then(changeTempe);
 }
 //city temperature-reading info and making changes
 function changeTempe(recieved) {
@@ -61,10 +61,13 @@ function changeTempe(recieved) {
   currentH.innerHTML = `${hum}%`;
   //wind speed 
   let currentWs = document.querySelector("#wind-speed");
-  let windSpeed = recieved.data.wind.speed;
+  let windSpeed = recieved.data.wind.speed ;
+  windSpeed = Math.round(windSpeed * 3.6);
   currentWs.innerHTML = `${windSpeed} km/h`;
   //wind direction
-  let windDeg = `${recieved.data.wind.deg}deg`;
+  let windD = recieved.data.wind.deg;
+  windD = windD + 105;
+  let windDeg = `${windD}deg`;
   document.getElementById("wind-img").style.transform=`rotate(${windDeg})`;
   //weather.description & weather.icon
   let currentSun = document.querySelector("#sunny");
@@ -72,7 +75,19 @@ function changeTempe(recieved) {
   currentSun.innerHTML = `${sun}`;
   let sunIcon = recieved.data.weather[0].icon;
   document.getElementById("sun-icon").src = `images/${sunIcon}.png`;
-  
+  //start percipitation info
+  let lat = recieved.data.coord.lat;
+  let lon =recieved.data.coord.lon;
+  let apiKey = "92161eb593fedf6f773cc741f318b677";
+  let urlOW = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(urlOW).then(readPercip);
+}
+//Probability of precipitation
+function readPercip(recieved) {
+  //daily.pop
+  let currentP = document.querySelector("#precip");
+  let prec = recieved.data.daily[0].rain;
+  currentP.innerHTML = `${prec} mm`;
 }
 
 function beginSearch() {
